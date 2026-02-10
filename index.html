@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>치과 발치 리듬 게임</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="flash-overlay"></div>
+    <div id="game-container">
+        <div id="ui-overlay">
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="label">SCORE</span>
+                    <span id="score">100</span>
+                </div>
+                <div class="stat-item">
+                    <span class="label">PROGRESS</span>
+                    <div class="gauge-container">
+                        <div id="progress-gauge" class="gauge-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="combo-container">
+                <span id="combo-text">COMBO</span>
+                <span id="combo-count">0</span>
+            </div>
+        </div>
+
+        <div id="main-scene">
+            <div id="tooth-container">
+                <div class="socket"></div>
+                <div id="tooth-visual">
+                    <div id="tooth-visual-shine"></div>
+                    <div id="tooth-blood"></div>
+                </div>
+            </div>
+            <div id="rhythm-area">
+                <div class="lane" id="lane-q">
+                    <div class="hit-zone">Q</div>
+                </div>
+                <div class="lane" id="lane-w">
+                    <div class="hit-zone">W</div>
+                </div>
+                <div class="lane" id="lane-e">
+                    <div class="hit-zone">E</div>
+                </div>
+                <div class="lane" id="lane-up">
+                    <div class="hit-zone">↑</div>
+                </div>
+                <div class="lane" id="lane-left">
+                    <div class="hit-zone">←</div>
+                </div>
+                <div class="lane" id="lane-down">
+                    <div class="hit-zone">↓</div>
+                </div>
+                <div class="lane" id="lane-right">
+                    <div class="hit-zone">→</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-start" class="screen active">
+            <h1>TOOTH EXTRACTION</h1>
+            <p>난이도를 선택하여 발치를 시작하세요!</p>
+
+            <div class="music-input-container">
+                <input type="text" id="music-url" placeholder="음악 URL을 입력하세요 (예: mp3 주소)">
+                <small>입력하지 않으면 기본 배경음악이 재생됩니다.</small>
+            </div>
+
+            <div class="mode-selection">
+                <div class="mode-buttons">
+                    <button id="btn-easy">쉬움 (3방향)</button>
+                    <button id="btn-hard" class="btn-secondary">어려움 (4방향)</button>
+                    <button id="btn-crazy" class="btn-crazy">미친 난이도 (6방향)</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="screen-gameover" class="screen">
+            <h1 id="gameover-title">실패!</h1>
+            <div style="font-size: 80px; margin: 20px 0;">😭</div>
+            <p id="gameover-msg">환자가 너무 아파서 도망갔어요 ㅠㅠ</p>
+            <button id="btn-retry">다시 시도</button>
+        </div>
+
+        <div id="screen-success" class="screen">
+            <h1>발치 성공!</h1>
+            <p>환자가 아주 만족해합니다!</p>
+            <button id="btn-restart">새로운 환자</button>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+
+</html>
